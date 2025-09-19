@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-
-namespace Ejercicio3.Models;
+﻿namespace Ejercicio3.Models;
 
 public class ServicioDeComunicaciones
 {
@@ -22,7 +20,7 @@ public class ServicioDeComunicaciones
             double total = 0;
             foreach (DetalleServicio dt in detalleServicios)
             {
-                total=dt.CostoTotal;
+                total+=dt.CostoTotal;
             }
             return total;
         }
