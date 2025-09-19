@@ -5,14 +5,6 @@ public class ServicioDeComunicaciones
     public DateTime Inicio { get; private set; }
     public DateTime Fin { get; private set; }
 
-    public ServicioDeComunicaciones(DateTime inicio, DateTime fin)
-    { 
-        Inicio = inicio;
-        Fin = fin;
-
-        CrearDetalles();
-    }
-
     public double ImporteTotal
     {
         get 
@@ -34,6 +26,14 @@ public class ServicioDeComunicaciones
         {
             return Fin - Inicio;
         }
+    }
+
+    public ServicioDeComunicaciones(DateTime inicio, DateTime fin)
+    {
+        Inicio = inicio;
+        Fin = fin;
+
+        CrearDetalles();
     }
 
     protected void CrearDetalles()
@@ -91,7 +91,7 @@ public class ServicioDeComunicaciones
         { 
             lineas[n++] = ds.ToString();
         }
-        lineas[n] = $"Precio Total: ${ImporteTotal:f2}";
+        lineas[n] = $"Precio Total ({Duracion.TotalSeconds/60:f0} S.): ${ImporteTotal:f2}";
 
         return lineas;
     }
